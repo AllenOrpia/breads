@@ -21,25 +21,19 @@ import { usePathname, useRouter } from "next/navigation";
 import { ThreadValidation } from "@/lib/validations/thread";
 import { create } from "domain";
 
+import { createThread } from "@/lib/actions/thread.actions";
+
 interface Props {
-  user: {
-    id: string;
-    objectId: string;
-    username: string;
-    name: string;
-    bio: string;
-    image: string;
-  };
-  btnTitle: String;
+  userId: string
 }
 
+const PostThread = ({ userId }: Props ) => {
 
-const PostThread = ({ userId }: { userId: string} ) => {
-
+    console.log(userId)
     const router = useRouter();
     const pathname = usePathname();
   
-    const form = useForm({
+    const form = useForm<z.infer<typeof ThreadValidation>>({
       resolver: zodResolver(ThreadValidation),
       defaultValues: {
         thread: '',
@@ -47,8 +41,15 @@ const PostThread = ({ userId }: { userId: string} ) => {
       },
     });
 
-    const onSubmit = async (data: any) => {
-        // await createThread(data);
+    const onSubmit =  async (values: z.infer<typeof ThreadValidation>) => {
+        await createThread({
+          text: values.thread,
+          author: userId,
+          communityId: null,
+          path: pathname,
+        });
+
+        router.push('/')
     }
   return (
     <Form {...form}>

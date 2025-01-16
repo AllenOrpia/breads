@@ -21,7 +21,7 @@ const page = async () => {
   return (
     <>
         <h1 className="head-text">Create thread</h1>
-        <PostThread userId={userInfo.id} />
+        <PostThread userId={userInfo._id.toString()} />
     </>
   )
 }
