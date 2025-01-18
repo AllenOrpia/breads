@@ -1,3 +1,4 @@
+import { hostname } from "os";
 
 
 const nextConfig = {
@@ -29,6 +30,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "placehold.co",
       },
+      {
+        protocol: "https",
+        hostname: "utfs.io",
+      }
     ],
   },
 };
