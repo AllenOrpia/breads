@@ -19,8 +19,6 @@ import { usePathname, useRouter } from "next/navigation";
 
 // import { updateUser } from "@/lib/actions/user.actions";
 import { ThreadValidation } from "@/lib/validations/thread";
-import { create } from "domain";
-
 import { createThread } from "@/lib/actions/thread.actions";
 
 interface Props {
@@ -28,8 +26,6 @@ interface Props {
 }
 
 const PostThread = ({ userId }: Props ) => {
-
-    console.log(userId)
     const router = useRouter();
     const pathname = usePathname();
   
