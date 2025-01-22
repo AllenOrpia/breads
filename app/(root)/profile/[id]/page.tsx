@@ -8,7 +8,7 @@ import { profileTabs } from "@/constants";
 import Image from "next/image";
 import ThreadsTab from "@/components/shared/ThreadsTab";
 
-console.log(profileTabs)
+
 
 
 
@@ -22,9 +22,13 @@ const page = async ({ params }: { params: { id: string } }) => {
 
     const { id } = await params;
     const profileInfo = await fetchUser(id);
-    console.log(profileInfo)
- 
 
+    if (!profileInfo) {
+        redirect("/404");
+        return;
+    }
+ 
+    
     const currentUserInfo = await fetchUser(user.id);
     if (!currentUserInfo?.onboarded) redirect("/onboarding");
 
