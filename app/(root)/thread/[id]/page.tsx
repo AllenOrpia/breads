@@ -5,7 +5,7 @@ import { fetchUser } from "@/lib/actions/user.actions";
 import { fetchThread } from "@/lib/actions/thread.actions";
 import Comment from "@/components/forms/Comment";
 
-const page = async ({ params }: { params: { id: string } }) => {
+const page = async ({ params }: { params: Promise<{id: string}> }) => {
 
     const { id } = await params;
     if (!id) return null;

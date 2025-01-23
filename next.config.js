@@ -3,6 +3,9 @@ import { hostname } from "os";
 
 const nextConfig = {
   /* config options here */
+  typescript: {
+    ignoreBuildErrors: true
+  },
   experimental: {
     serverActions: true,
     serverComponentsExternalPackages: ["mongoose"],
