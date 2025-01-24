@@ -14,9 +14,12 @@ const LeftSidebar = () => {
   const { isLoaded, userId } = useAuth();
 
   
-  if (!isLoaded || !userId) {
-    return null
-  }
+  // if (!isLoaded || !userId) {
+  //   return null
+  // }
+
+  if (!isLoaded) return null;
+  if (!userId) redirect('/sign-in')
 
  
   return (
