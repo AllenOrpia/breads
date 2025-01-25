@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import ThreadCard from "@/components/cards/ThreadCard";
 import { currentUser } from "@clerk/nextjs/server";
 import { fetchUser } from "@/lib/actions/user.actions";
-import { fetchThread } from "@/lib/actions/thread.actions";
+import { fetchThreadById } from "@/lib/actions/thread.actions";
 import Comment from "@/components/forms/Comment";
 
 const page = async ({ params }: { params: Promise<{id: string}> }) => {
@@ -17,7 +17,7 @@ const page = async ({ params }: { params: Promise<{id: string}> }) => {
 
     if (!userInfo.onboarded) redirect("/onboarding");
 
-    const post = await fetchThread(id);
+    const post = await fetchThreadById(id);
    
   
 

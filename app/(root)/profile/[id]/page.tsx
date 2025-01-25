@@ -10,8 +10,6 @@ import ThreadsTab from "@/components/shared/ThreadsTab";
 
 
 
-
-
 const page = async ({ params }: { params: Promise<{id: string}> }) => {
     const user = await currentUser();
     const { id } = await params;
@@ -22,6 +20,7 @@ const page = async ({ params }: { params: Promise<{id: string}> }) => {
     };
 
     const profileInfo = await fetchUser(id);
+    
 
     if (!profileInfo) {
         redirect("/404");

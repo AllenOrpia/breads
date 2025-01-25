@@ -1,4 +1,4 @@
-import { fetchUserThreads } from "@/lib/actions/thread.actions";
+import { fetchUserPosts } from "@/lib/actions/user.actions"; 
 import { redirect } from "next/navigation";
 import ThreadCard from "../cards/ThreadCard";
 
@@ -10,12 +10,11 @@ interface Props {
 
 const ThreadsTab = async ({ currentUserId, accountId, accountType }: Props) => {
   // TODO: FETCH PROFILE THREADS
-  const userThreads = await fetchUserThreads(accountId);
-
-  if (!userThreads) redirect("/");
+  const userThreads = await fetchUserPosts(accountId)
+ 
   return (
     <section className="mt-10 flex flex-col gap-10">
-      {userThreads.threads.map((thread: any) => (
+      {userThreads?.threads.map((thread: any) => (
         <ThreadCard
           key={thread._id}
           id={thread._id}
