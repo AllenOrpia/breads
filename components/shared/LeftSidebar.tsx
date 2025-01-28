@@ -11,17 +11,8 @@ import { SignOutButton, SignedIn, useAuth } from "@clerk/nextjs";
 const LeftSidebar = () => {
   const router = useRouter();
   const pathName = usePathname();
-  const { isLoaded, userId } = useAuth();
+  const { userId } = useAuth();
 
-  
-  // if (!isLoaded || !userId) {
-  //   return null
-  // }
-
-  if (!isLoaded) return null;
-  if (!userId) redirect('/sign-in')
-
- 
   return (
     <section className="custom-scrollbar leftsidebar">
       <div className="flex w-full flex-1 flex-col gap-6 px-6">
