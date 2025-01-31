@@ -5,7 +5,7 @@ import Thread from "../models/thread.model";
 import User from "../models/user.model";
 
 import { connectToDB } from "../db";
-import path from "path";
+
 
 interface CreateCommunityParams {
   id: string;
@@ -28,7 +28,7 @@ export async function createCommunity({
     connectToDB();
 
     // Find the user
-    const user = await User.findById({ id: createdById });
+    const user = await User.findOne({ id: createdById });
 
     if (!user) throw new Error("User not found");
 

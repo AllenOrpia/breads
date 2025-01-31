@@ -1,6 +1,6 @@
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import { fetchUser, getNotifications } from "@/lib/actions/user.actions";
+import { fetchUser, getActivity } from "@/lib/actions/user.actions";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -18,7 +18,7 @@ const page = async () => {
 
   // GET NOTIFICATIONS
 
-  const notifs = await getNotifications(currentUserInfo._id)
+  const notifs = await getActivity(currentUserInfo._id)
 
     return (
       <section>

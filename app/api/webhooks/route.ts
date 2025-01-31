@@ -58,7 +58,6 @@ export async function POST(req: Request) {
   }
 
   // Do something with payload
-  // For this guide, log payload to console
   const { id } = evt?.data;
   const eventType = evt?.type;
 
@@ -75,7 +74,7 @@ export async function POST(req: Request) {
         name: name, 
         username: slug,
         image: image_url || '',
-        bio: 'org bio',
+        bio: slug,
         createdById: created_by || ''
       });
 
