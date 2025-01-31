@@ -165,7 +165,7 @@ export async function POST(req: Request) {
       console.log("updated", evt?.data);
 
       // @ts-ignore
-      await updateCommunityInfo(id, name, slug, logo_url);
+      await updateCommunityInfo(id, name, slug, image_url);
 
       return new Response('Member Removed', { status: 201 });
     } catch (err: any) {
