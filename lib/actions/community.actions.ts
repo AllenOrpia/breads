@@ -7,14 +7,23 @@ import User from "../models/user.model";
 import { connectToDB } from "../db";
 import path from "path";
 
-export async function createCommunity(
-  id: string,
-  name: string,
-  username: string,
-  image: string,
-  bio: string,
-  createdById: string
-) {
+interface CreateCommunityParams {
+  id: string;
+  name: string;
+  username: string;
+  image: string;
+  bio: string;
+  createdById: string;
+}
+
+export async function createCommunity({
+  id,
+  name,
+  username,
+  image,
+  bio,
+  createdById
+}: CreateCommunityParams) {
   try {
     connectToDB();
 
